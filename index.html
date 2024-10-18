@@ -23,7 +23,7 @@
         }
 
         header img {
-            height: 240px;
+            height: 240px; /* Altura fija para PC */
             object-fit: contain;
         }
 
@@ -31,7 +31,6 @@
             background-color: #343a40;
             color: #f8f9fa;
             padding: 10px 0;
-            text-align: center;
         }
 
         nav ul {
@@ -63,7 +62,6 @@
         .carousel-container {
             position: relative;
             width: 100%;
-            max-width: 900px; /* Ajustado para un tamaño más pequeño */
             margin: 20px auto;
             overflow: hidden;
         }
@@ -126,6 +124,25 @@
         
         .carousel-container:hover .carousel-caption {
             opacity: 1; /* Hacer visibles al hover */
+        }
+
+        @media (max-width: 768px) {
+            header img {
+                height: 150px; /* Reduce la altura en pantallas pequeñas */
+            }
+
+            nav ul li {
+                display: block; /* Cambiar a bloque para apilar elementos */
+                margin: 5px 0; /* Espacio vertical */
+            }
+
+            .carousel-container {
+                max-width: 100%; /* Ancho completo en móviles */
+            }
+
+            .carousel-slide {
+                display: block; /* Mostrar todas las diapositivas en móviles */
+            }
         }
     </style>
 </head>
