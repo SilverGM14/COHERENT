@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    <title>Nuestro Equipo</title>
     <!-- Bootstrap CSS desde un CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -11,8 +11,8 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             background-color: #f8f9fa;
             color: #343a40;
-            margin: 0;
-            padding: 0;
+            margin: 0; /* Elimina el margen por defecto */
+            padding: 0; /* Elimina el padding por defecto */
         }
 
         header {
@@ -22,8 +22,8 @@
         }
 
         header img {
-            height: 240px;
-            object-fit: contain;
+            height: 240px; /* Ajuste para el tamaño del logo */
+            object-fit: contain; /* Mantiene la proporción del logo */
         }
 
         nav {
@@ -54,58 +54,38 @@
             color: #ffc107;
         }
 
+        .team-info {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .team-info h2 {
+            color: #ff9f43;
+        }
+
+        .team-info p {
+            color: #6c757d;
+        }
+
+        .team-info img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-info img:hover {
+            transform: scale(3); /* Aumenta de su tamaño */
+            border-radius: 10%; /* Mantiene la forma circular al hacer hover */
+        }
+
         /* Ajuste del ancho del contenedor */
         .container {
-            max-width: 1200px;
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px; /* Reducir el ancho máximo del carrusel */
-            margin: 20px auto;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            display: none;
-            position: relative;
-        }
-
-        .carousel-slide img {
-            width: 100%; /* Ajustar al 100% del contenedor */
-            height: 300px; /* Establecer altura fija para las imágenes */
-            object-fit: cover; /* Ajustar la imagen para cubrir todo el espacio */
-            border-radius: 10px;
-            margin: 0 auto; /* Centrar la imagen */
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .carousel-control {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            right: 10px;
+            max-width: 1200px; /* Ajuste del ancho para mayor amplitud */
         }
     </style>
 </head>
@@ -123,35 +103,47 @@
         </ul>
     </nav>
     
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="Fotos/IMG-20240423-WA0010 copy 2.jpg" alt="Descripción de la imagen 1">
-            <div class="carousel-caption">
-                <h5>Título de la Diapositiva 1</h5>
-                <p>Descripción de la primera diapositiva.</p>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="nelphy" class="team-info">
+                    <h2>Dra. Nelphy De La Cruz</h2>
+                    <img src="Fotos/dra1.jpg" alt="Dra. Nelphy De La Cruz">
+                    <p>Información sobre la Dra. Nelphy De La Cruz.</p>
+                </div>
+                <div id="mariella" class="team-info mt-4">
+                    <h2>Mariella Mateo</h2>
+                    <img src="Fotos/mariella.jpg" alt="Mariella Mateo">
+                    <p>Información sobre Mariella Mateo.</p>
+                </div>
+                <div id="noris" class="team-info mt-4">
+                    <h2>Noris De La Cruz</h2>
+                    <img src="Fotos/noris1.jpg" alt="Noris De La Cruz">
+                    <p>Información sobre Noris De La Cruz.</p>
+                </div>
+                <div id="fabio" class="team-info mt-4">
+                    <h2>Fabio Pimentel</h2>
+                    <img src="Fotos/fabio.jpg" alt="Fabio Pimentel">
+                    <p>Información sobre Fabio Pimentel.</p>
+                </div>
+                <div id="joan" class="team-info mt-4">
+                    <h2>Joan Mieses</h2>
+                    <img src="Fotos/joan.jpg" alt="Joan Mieses">
+                    <p>Información sobre Joan Mieses.</p>
+                </div>
+                <div id="giovanny" class="team-info mt-4">
+                    <h2>Giovanny Paulino</h2>
+                    <img src="Fotos/giovanny.jpg" alt="Giovanny Paulino">
+                    <p>Información sobre Giovanny Paulino.</p>
+                </div>
+                <div id="silverio" class="team-info mt-4">
+                    <h2>Silverio Gómez Medrano</h2>
+                    <img src="Fotos/silverio.jpg" alt="Silverio Gómez Medrano">
+                    <p>Información sobre Silverio Gómez Medrano.</p>
+                </div>
             </div>
-        </div>
-        <div class="carousel-slide">
-            <img src="Fotos/IMG-20240423-WA0036.jpg" alt="Descripción de la imagen 2">
-            <div class="carousel-caption">
-                <h5>Fabio Pimentel</h5>
-                <p>Felicitación por su trabajo de tesis.</p>
-            </div>
-        </div>
-        <div class="carousel-slide">
-            <img src="Fotos/IMG-20240423-WA0020.jpg" alt="Descripción de la imagen 3">
-            <div class="carousel-caption">
-                <h5>FOTO DE GRUPO</h5>
-                <p>Fotografía del grupo en el II Congreso Internacional de Investigación y Desarrollo.</p>
-            </div>
-        </div>
-        <div class="carousel-controls">
-            <button class="carousel-control" id="prevSlide">&#9664;</button>
-            <button class="carousel-control" id="nextSlide">&#9654;</button>
         </div>
     </div>
-    
-    <script src="scripts/slide.js"></script>
 </body>
 </html>
 
