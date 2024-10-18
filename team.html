@@ -51,7 +51,7 @@
         }
 
         nav ul li a:hover {
-            color: #ffc107; /* Color hover */
+            color: #ffc107;
         }
 
         /* Ajuste del ancho del contenedor */
@@ -62,7 +62,7 @@
         .carousel-container {
             position: relative;
             width: 100%;
-            max-width: 900px; /* Ajustado para un tamaño más pequeño */
+            max-width: 600px; /* Reducir el ancho máximo del carrusel */
             margin: 20px auto;
             overflow: hidden;
         }
@@ -70,15 +70,14 @@
         .carousel-slide {
             display: none;
             position: relative;
-            transition: opacity 0.5s ease-in-out; /* Agregar animación de opacidad */
         }
 
         .carousel-slide img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
+            width: 100%; /* Ajustar al 100% del contenedor */
+            height: 300px; /* Establecer altura fija para las imágenes */
+            object-fit: cover; /* Ajustar la imagen para cubrir todo el espacio */
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra a las imágenes */
+            margin: 0 auto; /* Centrar la imagen */
         }
 
         .carousel-controls {
@@ -88,26 +87,14 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
-            opacity: 0; /* Invisibles por defecto */
-            transition: opacity 0.3s; /* Transición para suavizar la aparición */
-        }
-
-        .carousel-container:hover .carousel-controls {
-            opacity: 1; /* Hacer visibles al hover */
         }
 
         .carousel-control {
-            background-color: transparent; /* Sin fondo */
+            background-color: rgba(0, 0, 0, 0.5);
             border: none;
             color: white;
-            padding: 8px 12px; /* Tamaño reducido */
+            padding: 10px;
             cursor: pointer;
-            transition: color 0.3s; /* Transición en hover */
-            font-size: 24px; /* Ajustar tamaño de la flecha */
-        }
-
-        .carousel-control:hover {
-            color: #ffc107; /* Color naranja en hover */
         }
 
         .carousel-caption {
@@ -119,12 +106,6 @@
             bottom: 10px;
             left: 10px;
             right: 10px;
-            opacity: 0; /* Invisible por defecto */
-            transition: opacity 0.3s; /* Transición para suavizar la aparición */
-        }
-        
-        .carousel-container:hover .carousel-caption {
-            opacity: 1; /* Hacer visibles al hover */
         }
     </style>
 </head>
