@@ -24,8 +24,7 @@
 
         header img {
             height: 240px;
-            width: auto; /* Mantiene la proporción */
-            max-width: 100%; /* Asegura que el logo no exceda el ancho del contenedor */
+            object-fit: contain;
         }
 
         nav {
@@ -128,42 +127,20 @@
         .carousel-container:hover .carousel-caption {
             opacity: 1; /* Hacer visibles al hover */
         }
-
-        @media (max-width: 576px) {
-            header img {
-                height: 150px; /* Reduce la altura en pantallas pequeñas */
-            }
-        }
     </style>
 </head>
 <body>
-    <header class="container">
+    <header>
         <img src="Fotos/logo.png" alt="Logo de la empresa" class="logo">
     </header>
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Coherent</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">Sobre Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="team.html">Nuestro Equipo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="team.html">Nuestro Equipo</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
     </nav>
     
     <div class="carousel-container">
@@ -197,5 +174,7 @@
     <script src="scripts/slide.js"></script>
 </body>
 </html>
+
+
 
 
