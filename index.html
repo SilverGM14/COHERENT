@@ -23,9 +23,11 @@
         }
 
         header img {
-            height: 240px;
-            object-fit: contain;
-        }
+    height: 240px;
+    width: 100%; /* Asegura que la imagen no se desborde */
+    max-width: 100%; /* Evita que la imagen sea más ancha que el contenedor */
+    object-fit: contain;
+}
 
         nav {
             background-color: #343a40;
