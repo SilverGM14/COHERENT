@@ -22,7 +22,7 @@ function prevSlide() {
 showSlide(currentSlide);
 
 // Cambia de diapositiva cada 2.5 segundos
-setInterval(nextSlide, 5500);
+setInterval(nextSlide, 6500);
 
 // Control de navegación
 document.getElementById('nextSlide').addEventListener('click', nextSlide);
