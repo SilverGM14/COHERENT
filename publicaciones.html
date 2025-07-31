@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | COHERENT</title>
+    <title>Publicaciones | COHERENT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,8 +20,7 @@
                         display: ['Poppins', 'sans-serif']
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 6s infinite'
+                        'float': 'float 6s ease-in-out infinite'
                     }
                 }
             }
@@ -45,11 +44,6 @@
             background: rgba(15, 15, 15, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
         }
         
         #particles-js {
@@ -77,10 +71,10 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-white hover:text-primary transition-colors duration-300">Inicio</a>
-                    <a href="publicaciones.html" class="text-white hover:text-primary transition-colors duration-300">Publicaciones</a>
-                    <a href="blog.html" class="text-white hover:text-primary transition-colors duration-300">Blog</a>
+                    <a href="publicaciones.html" class="text-primary font-medium">Publicaciones</a>
+                    <a href="about.html" class="text-white hover:text-primary transition-colors duration-300">Sobre Nosotros</a>
                     <a href="team.html" class="text-white hover:text-primary transition-colors duration-300">Equipo</a>
-                    <a href="contact.html" class="text-primary font-medium">Contacto</a>
+                    <a href="contact.html" class="text-white hover:text-primary transition-colors duration-300">Contacto</a>
                 </div>
                 <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
                     <i class="bi bi-list text-2xl"></i>
@@ -91,10 +85,10 @@
         <div class="md:hidden hidden bg-darker border-t border-gray-800" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="index.html" class="block px-3 py-2 text-white hover:text-primary">Inicio</a>
-                <a href="publicaciones.html" class="block px-3 py-2 text-white hover:text-primary">Publicaciones</a>
-                <a href="blog.html" class="block px-3 py-2 text-white hover:text-primary">Blog</a>
+                <a href="publicaciones.html" class="block px-3 py-2 text-primary">Publicaciones</a>
+                <a href="about.html" class="block px-3 py-2 text-white hover:text-primary">Sobre Nosotros</a>
                 <a href="team.html" class="block px-3 py-2 text-white hover:text-primary">Equipo</a>
-                <a href="contact.html" class="block px-3 py-2 text-primary">Contacto</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:text-primary">Contacto</a>
             </div>
         </div>
     </nav>
@@ -102,92 +96,73 @@
     <section class="min-h-[50vh] flex items-center justify-center relative overflow-hidden pt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                <span class="gradient-text">Contacto</span>
+                <span class="gradient-text">Publicaciones</span>
             </h1>
             <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
-                Ponte en contacto con nuestro equipo de investigación
+                Nuestras contribuciones científicas a la comunidad
             </p>
         </div>
     </section>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div class="glass-card rounded-xl p-8">
-                <h2 class="text-3xl font-bold mb-6 text-primary">Envía un Mensaje</h2>
-                <form id="contactForm" class="space-y-6">
-                    <div>
-                        <label for="nombre" class="block mb-2">Nombre Completo *</label>
-                        <input type="text" id="nombre" name="nombre" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                    </div>
-                    <div>
-                        <label for="email" class="block mb-2">Correo Electrónico *</label>
-                        <input type="email" id="email" name="email" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                    </div>
-                    <div>
-                        <label for="asunto" class="block mb-2">Asunto *</label>
-                        <select id="asunto" name="asunto" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary">
-                            <option value="" disabled selected>Seleccione un asunto</option>
-                            <option>Información General</option>
-                            <option>Colaboraciones</option>
-                            <option>Preguntas sobre Investigación</option>
-                            <option>Posibilidades de Estudio</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="mensaje" class="block mb-2">Mensaje *</label>
-                        <textarea id="mensaje" name="mensaje" rows="5" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-gradient-to-r from-primary to-yellow-500 text-black font-bold py-3 px-6 rounded-lg hover:opacity-90 transition transform hover:scale-[1.01]">
-                        Enviar Mensaje
-                    </button>
-                </form>
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+        <div class="glass-card rounded-xl p-6">
+            <div class="flex flex-wrap gap-4 filters">
+                <button class="px-4 py-2 rounded-full bg-primary text-black font-medium">Todas</button>
+                <button class="px-4 py-2 rounded-full border border-gray-600 hover:border-primary transition">Percolación</button>
+                <button class="px-4 py-2 rounded-full border border-gray-600 hover:border-primary transition">Crecimiento Superficial</button>
+                <button class="px-4 py-2 rounded-full border border-gray-600 hover:border-primary transition">DFT</button>
+                <button class="px-4 py-2 rounded-full border border-gray-600 hover:border-primary transition">Monte Carlo</button>
             </div>
+        </div>
+    </section>
 
-            <div class="space-y-8">
-                <div class="glass-card rounded-xl p-8">
-                    <h2 class="text-3xl font-bold mb-6 text-primary">Información de Contacto</h2>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="bi bi-geo-alt text-primary text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h3 class="font-bold">Dirección</h3>
-                                <p class="text-gray-400">Instituto de Física, Universidad Autónoma de Santo Domingo (UASD)</p>
-                                <p class="text-gray-400">Av. Alma Máter, Santo Domingo, República Dominicana</p>
-                            </div>
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="space-y-6">
+            <div class="glass-card rounded-xl p-6 hover:border-primary transition-all publication">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/4">
+                        <img src="Fotos/publicacion1.jpg" alt="Publicación" class="w-full rounded-lg">
+                    </div>
+                    <div class="md:w-3/4">
+                        <h2 class="text-2xl font-bold mb-2">Standard and inverse site percolation of triangular tiles</h2>
+                        <div class="flex flex-wrap gap-4 mb-3 tags">
+                            <span class="text-sm bg-gray-800 rounded-full px-3 py-1">Percolación</span>
+                            <span class="text-sm bg-gray-800 rounded-full px-3 py-1">Redes triangulares</span>
                         </div>
-                        <div class="flex items-start">
-                            <i class="bi bi-envelope text-primary text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h3 class="font-bold">Correo Electrónico</h3>
-                                <p class="text-gray-400">contacto@coherent-research.com</p>
-                                <p class="text-gray-400">info@coherent-research.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="bi bi-telephone text-primary text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h3 class="font-bold">Teléfono</h3>
-                                <p class="text-gray-400">+1 809-555-1234</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="bi bi-clock text-primary text-xl mt-1 mr-4"></i>
-                            <div>
-                                <h3 class="font-bold">Horario de Atención</h3>
-                                <p class="text-gray-400">Lunes a Viernes: 8:00 AM - 5:00 PM</p>
-                            </div>
+                        <p class="text-gray-400 mb-4">Physical Review E, 2022 - Estudio de percolación estándar e inversa de azulejos triangulares en redes triangulares mediante simulaciones numéricas.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:underline inline-flex items-center">
+                                Ver en Google Scholar <i class="bi bi-box-arrow-up-right ml-2"></i>
+                            </a>
+                            <span class="text-sm text-gray-500">DOI: 10.1103/PhysRevE.105.024136</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="glass-card rounded-xl overflow-hidden h-96">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d946.1129489321221!2d-69.91762045068958!3d18.4631835467224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf89f28b5008b1%3A0xc8f84df08b5980e1!2sInstituto%20de%20F%C3%ADsica!5e0!3m2!1sen!2sdo!4v1620000000000!5m2!1sen!2sdo" 
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            
+            <div class="glass-card rounded-xl p-6 hover:border-primary transition-all publication">
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/4">
+                        <img src="Fotos/publicacion2.jpg" alt="Publicación" class="w-full rounded-lg">
+                    </div>
+                    <div class="md:w-3/4">
+                        <h2 class="text-2xl font-bold mb-2">DFT based kinetic Monte Carlo study of metallic surfaces</h2>
+                        <div class="flex flex-wrap gap-4 mb-3 tags">
+                            <span class="text-sm bg-gray-800 rounded-full px-3 py-1">DFT</span>
+                            <span class="text-sm bg-gray-800 rounded-full px-3 py-1">KMC</span>
+                        </div>
+                        <p class="text-gray-400 mb-4">Applied Surface Science, 2023 - Comportamiento de crecimiento de superficies de Cr y W utilizando simulaciones KMC basadas en DFT.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="#" class="text-primary hover:underline inline-flex items-center">
+                                Ver en ResearchGate <i class="bi bi-box-arrow-up-right ml-2"></i>
+                            </a>
+                            <span class="text-sm text-gray-500">DOI: 10.1016/j.apsusc.2023.156589</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
     <footer class="bg-black bg-opacity-80 py-12 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -201,7 +176,7 @@
                     <ul class="space-y-2">
                         <li><a href="publicaciones.html" class="text-gray-400 hover:text-primary transition">Publicaciones</a></li>
                         <li><a href="blog.html" class="text-gray-400 hover:text-primary transition">Blog</a></li>
-                        <li><a href="team.html" class="text-gray-400 hover:text-primary transition">Equipo</a></li>
+                        <li><a href="galeria.html" class="text-gray-400 hover:text-primary transition">Galería</a></li>
                     </ul>
                 </div>
                 <div>
@@ -211,7 +186,7 @@
                             <i class="bi bi-geo-alt-fill text-primary mr-2"></i> Instituto de Física, UASD
                         </li>
                         <li class="flex items-center text-gray-400">
-                            <i class="bi bi-envelope-fill text-primary mr-2"></i> contacto@coherent-research.com
+                            <i class="bi bi-envelope-fill text-primary mr-2"></i> info@coherent-research.com
                         </li>
                         <li class="flex items-center text-gray-400">
                             <i class="bi bi-telephone-fill text-primary mr-2"></i> +1 809-555-1234
@@ -269,23 +244,17 @@
             });
         });
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validación básica
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const asunto = document.getElementById('asunto').value;
-            const mensaje = document.getElementById('mensaje').value;
-            
-            if (!nombre || !email || !asunto || !mensaje) {
-                alert('Por favor complete todos los campos obligatorios (*)');
-                return;
-            }
-            
-            // Simulación de envío
-            alert('¡Gracias por su mensaje! Nos pondremos en contacto pronto.');
-            this.reset();
+        document.querySelectorAll('.filters button').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.textContent.trim();
+                document.querySelectorAll('.publication').forEach(pub => {
+                    if(filter === 'Todas' || pub.querySelector('.tags').textContent.includes(filter)) {
+                        pub.style.display = 'block';
+                    } else {
+                        pub.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>

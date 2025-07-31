@@ -3,151 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Nuestro Equipo</title>
-    <!-- Bootstrap CSS desde un CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Equipo | COHERENT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f96d00',
+                        secondary: '#393e46',
+                        dark: '#111111',
+                        darker: '#000000'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
-            margin: 0; /* Elimina el margen por defecto */
-            padding: 0; /* Elimina el padding por defecto */
-        }
-
-        header {
-            background-color: #000000;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        header img {
-            height: 240px;
-            width: 100%; /* Asegura que la imagen no se desborde */
-            max-width: 100%; /* Evita que la imagen sea más ancha que el contenedor */
-            object-fit: contain;
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
         }
         
-
-        nav {
-            background-color: #343a40;
-            color: #f8f9fa;
-            padding: 10px 0;
-            text-align: center;
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(45deg, #f96d00, #ff9e00);
         }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        
+        .glass-card {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
+        
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -10;
         }
-
-        nav ul li a {
-            color: #f8f9fa;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            color: #ffc107;
-        }
-
-        .team-info {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .team-info h2 {
-            color: #ff9f43;
-        }
-
-        .team-info p {
-            color: #6c757d;
-        }
-
-        .team-info img {
-            width: 120px;
-            height: 120px;
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            object-fit: cover;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .team-info img:hover {
-            transform: scale(3); /* Aumenta de su tamaño */
-            border-radius: 10%; /* Mantiene la forma circular al hacer hover */
-        }
-
-        /* Ajuste del ancho del contenedor */
-        .container {
-            max-width: 1200px; /* Ajuste del ancho para mayor amplitud */
+            background: #f96d00;
+            border: 3px solid #111111;
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 </head>
-<body>
-    <header>
-        <img src="Fotos/logo.png" alt="Logo de la empresa" class="logo">
-    </header>
+<body class="bg-darker text-gray-100 font-sans antialiased overflow-x-hidden">
+    <div id="particles-js"></div>
     
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="about.html">Sobre Nosotros</a></li>
-            <li><a href="team.html">Nuestro Equipo</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-        </ul>
+    <nav class="fixed top-0 w-full bg-black bg-opacity-80 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html">
+                        <img src="Fotos/logo.png" alt="COHERENT Logo" class="h-10 w-auto">
+                    </a>
+                    <span class="text-xl font-display font-bold gradient-text hidden md:inline">COHERENT</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-white hover:text-primary transition-colors duration-300">Inicio</a>
+                    <a href="publicaciones.html" class="text-white hover:text-primary transition-colors duration-300">Publicaciones</a>
+                    <a href="blog.html" class="text-white hover:text-primary transition-colors duration-300">Blog</a>
+                    <a href="team.html" class="text-primary font-medium">Equipo</a>
+                    <a href="contact.html" class="text-white hover:text-primary transition-colors duration-300">Contacto</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="md:hidden hidden bg-darker border-t border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-white hover:text-primary">Inicio</a>
+                <a href="publicaciones.html" class="block px-3 py-2 text-white hover:text-primary">Publicaciones</a>
+                <a href="blog.html" class="block px-3 py-2 text-white hover:text-primary">Blog</a>
+                <a href="team.html" class="block px-3 py-2 text-primary">Equipo</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:text-primary">Contacto</a>
+            </div>
+        </div>
     </nav>
-    
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-12">
-                <div id="nelphy" class="team-info">
-                    <h2>Nelphy De La Cruz</h2>
-                    <img src="Fotos/dra1.jpg" alt="Nelphy De La Cruz">
-                    <p>Información sobre Nelphy De La Cruz.</p>
+
+    <section class="min-h-[50vh] flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <span class="gradient-text">Nuestro Equipo</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto opacity-90">
+                Conoce al talentoso equipo detrás de nuestras investigaciones
+            </p>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="glass-card rounded-xl overflow-hidden transition-transform hover:scale-105">
+                <div class="relative h-80 overflow-hidden">
+                    <img src="Fotos/dra1.jpg" alt="Dra. Nelphy De La Cruz" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-2xl font-bold">Dra. Nelphy De La Cruz</h3>
+                        <p class="text-primary">Investigadora</p>
+                    </div>
                 </div>
-                <div id="mariella" class="team-info mt-4">
-                    <h2>Mariella Mateo</h2>
-                    <img src="Fotos/mariella.jpg" alt="Mariella Mateo">
-                    <p>Información sobre Mariella Mateo.</p>
+                <div class="p-6">
+                    <p class="mb-4">PhD en Física.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-google text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-google-scholar text-xl"></i></a>
+                    </div>
                 </div>
-                <div id="noris" class="team-info mt-4">
-                    <h2>Noris De La Cruz</h2>
-                    <img src="Fotos/noris1.jpg" alt="Noris De La Cruz">
-                    <p>Información sobre Noris De La Cruz.</p>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden transition-transform hover:scale-105">
+                <div class="relative h-80 overflow-hidden">
+                    <img src="Fotos/mariella.jpg" alt="Mariella Mateo" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-2xl font-bold">Mariella Mateo</h3>
+                        <p class="text-primary">Investigadora</p>
+                    </div>
                 </div>
-                <div id="fabio" class="team-info mt-4">
-                    <h2>Fabio Pimentel</h2>
-                    <img src="Fotos/fabio.jpg" alt="Fabio Pimentel">
-                    <p>Información sobre Fabio Pimentel.</p>
+                <div class="p-6">
+                    <p class="mb-4">PhD en Física.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-github text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-google-scholar text-xl"></i></a>
+                    </div>
                 </div>
-                <div id="joan" class="team-info mt-4">
-                    <h2>Joan Mieses</h2>
-                    <img src="Fotos/joan.jpg" alt="Joan Mieses">
-                    <p>Información sobre Joan Mieses.</p>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden transition-transform hover:scale-105">
+                <div class="relative h-80 overflow-hidden">
+                    <img src="Fotos/fabio.jpg" alt="Fabio Pimentel" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-2xl font-bold">Fabio Pimentel</h3>
+                        <p class="text-primary">Investigador</p>
+                    </div>
                 </div>
-                <div id="giovanny" class="team-info mt-4">
-                    <h2>Giovanny Paulino</h2>
-                    <img src="Fotos/giovanny.jpg" alt="Giovanny Paulino">
-                    <p>Información sobre Giovanny Paulino.</p>
+                <div class="p-6">
+                    <p class="mb-4">Descr...</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-google-scholar text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-github text-xl"></i></a>
+                    </div>
                 </div>
-                <div id="silverio" class="team-info mt-4">
-                    <h2>Silverio Gómez Medrano</h2>
-                    <img src="Fotos/silverio.jpg" alt="Silverio Gómez Medrano">
-                    <p>Estudiante de Informática en la Universidad Autónoma de Santo Domingo (UASD)</p>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden transition-transform hover:scale-105">
+                <div class="relative h-80 overflow-hidden">
+                    <img src="Fotos/investigador1.jpg" alt="Carlos Rodríguez" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-2xl font-bold">Noris De La Cruz</h3>
+                        <p class="text-primary">Investigadora</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="mb-4">Descr...</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-github text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden transition-transform hover:scale-105">
+                <div class="relative h-80 overflow-hidden">
+                    <img src="Fotos/investigadora2.jpg" alt="Ana Martínez" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-2xl font-bold">Joan Mieses</h3>
+                        <p class="text-primary">Investigador</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="mb-4">EDescr.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-google-scholar text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-xl overflow-hidden transition-transform hover:scale-105">
+                <div class="relative h-80 overflow-hidden">
+                    <img src="Fotos/investigador3.jpg" alt="José Pérez" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                        <h3 class="text-2xl font-bold">Silverio Gómez Medrano</h3>
+                        <p class="text-primary">Desarrollador Computacional</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <p class="mb-4">Descr.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-github text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-primary"><i class="bi bi-linkedin text-xl"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="container mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <h2 class="text-3xl font-bold mb-10 text-center text-primary">Nuestra Trayectoria</h2>
+        <div class="relative pl-16">
+            <div class="absolute left-8 top-0 h-full w-1 bg-gradient-to-b from-primary to-transparent"></div>
+            
+            <div class="relative timeline-item mb-12">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2">Fundación del Grupo</h3>
+                    <div class="text-primary mb-3">2015</div>
+                    <p class="text-gray-400">Creación del grupo COHERENT, con el objetivo de investigar sistemas complejos mediante métodos computacionales.</p>
+                </div>
+            </div>
+            
+            <div class="relative timeline-item mb-12">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2">Primer Proyecto FONDOCYT</h3>
+                    <div class="text-primary mb-3">2017</div>
+                    <p class="text-gray-400">Obtención de nuestro primer financiamiento para investigación en percolación de superficies, marcando el inicio de nuestra productividad científica.</p>
+                </div>
+            </div>
+            
+            <div class="relative timeline-item mb-12">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2">Expansión Internacional</h3>
+                    <div class="text-primary mb-3">2019</div>
+                    <p class="text-gray-400">Primeras colaboraciones con universidades europeas y publicación en revistas de alto impacto, posicionándonos como referentes en la región.</p>
+                </div>
+            </div>
+            
+            <div class="relative timeline-item">
+                <div class="glass-card rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2">Nuevas Líneas de Investigación</h3>
+                    <div class="text-primary mb-3">2023</div>
+                    <p class="text-gray-400">Implementación de estudios en dinámica de superficies metálicas usando KMC-DFT, expandiendo nuestras capacidades de investigación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black bg-opacity-80 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-display font-bold gradient-text mb-4">COHERENT</h3>
+                    <p class="text-gray-400">Investigación en Termodinámica Computacional</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="publicaciones.html" class="text-gray-400 hover:text-primary transition">Publicaciones</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-primary transition">Blog</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-primary transition">Equipo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="bi bi-geo-alt-fill text-primary mr-2"></i> Instituto de Física, UASD
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="bi bi-envelope-fill text-primary mr-2"></i> info@coherent-research.com
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="bi bi-telephone-fill text-primary mr-2"></i> +1 809-555-1234
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-github text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-google text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2025 COHERENT Research Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#f96d00" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#f96d00", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true }
+            }
+        });
+
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
-

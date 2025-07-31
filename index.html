@@ -3,177 +3,448 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Inicio</title>
-    <!-- Bootstrap CSS desde un CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>COHERENT | Investigación en Termodinámica</title>
+    
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f96d00',
+                        secondary: '#393e46',
+                        dark: '#111111',
+                        darker: '#000000'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s infinite'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #000000;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        header img {
-    height: 240px;
-    width: 100%; /* Asegura que la imagen no se desborde */
-    max-width: 100%; /* Evita que la imagen sea más ancha que el contenedor */
-    object-fit: contain;
-}
-
-        nav {
-            background-color: #343a40;
-            color: #f8f9fa;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #f8f9fa;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            color: #ffc107; /* Color hover */
-        }
-
-        /* Ajuste del ancho del contenedor */
-        .container {
-            max-width: 1200px;
-        }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 900px; /* Ajustado para un tamaño más pequeño */
-            margin: 20px auto;
-            overflow: hidden;
-        }
-
-        .carousel-slide {
-            display: none;
-            position: relative;
-            transition: opacity 0.5s ease-in-out; /* Agregar animación de opacidad */
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Añadir sombra a las imágenes */
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            opacity: 0; /* Invisibles por defecto */
-            transition: opacity 0.3s; /* Transición para suavizar la aparición */
-        }
-
-        .carousel-container:hover .carousel-controls {
-            opacity: 1; /* Hacer visibles al hover */
-        }
-
-        .carousel-control {
-            background-color: transparent; /* Sin fondo */
-            border: none;
-            color: white;
-            padding: 8px 12px; /* Tamaño reducido */
-            cursor: pointer;
-            transition: color 0.3s; /* Transición en hover */
-            font-size: 24px; /* Ajustar tamaño de la flecha */
-        }
-
-        .carousel-control:hover {
-            color: #ffc107; /* Color naranja en hover */
-        }
-
-        .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #ffffff;
-            padding: 10px;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            right: 10px;
-            opacity: 0; /* Invisible por defecto */
-            transition: opacity 0.3s; /* Transición para suavizar la aparición */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
         }
         
-        .carousel-container:hover .carousel-caption {
-            opacity: 1; /* Hacer visibles al hover */
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(45deg, #f96d00, #ff9e00);
+        }
+        
+        .glass-card {
+            background: rgba(15, 15, 15, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -10;
         }
     </style>
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
 </head>
-<body>
-    <header>
-        <img src="Fotos/logo.png" alt="Logo de la empresa" class="logo">
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="about.html">Sobre Nosotros</a></li>
-            <li><a href="team.html">Nuestro Equipo</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-        </ul>
+<body class="bg-darker text-gray-100 font-sans antialiased overflow-x-hidden">
+
+    <div id="particles-js"></div>
+
+    <nav class="fixed top-0 w-full bg-black bg-opacity-80 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="index.html">
+                        <img src="Fotos/logo.png" alt="COHERENT Logo" class="h-10 w-auto">
+                    </a>
+                    <span class="text-xl font-display font-bold gradient-text hidden md:inline">COHERENT</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#inicio" class="text-white hover:text-primary transition-colors duration-300">Inicio</a>
+                    <a href="publicaciones.html" class="text-white hover:text-primary transition-colors duration-300">Publicaciones</a>
+                    <a href="index.html#investigacion" class="text-white hover:text-primary transition-colors duration-300">Investigación</a>
+                    <a href="blog.html" class="text-white hover:text-primary transition-colors duration-300">Blog</a>
+                    <a href="team.html" class="text-white hover:text-primary transition-colors duration-300">Equipo</a>
+                    <a href="contact.html" class="text-white hover:text-primary transition-colors duration-300">Contacto</a>
+                </div>
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                    <i class="bi bi-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+
+        <div class="md:hidden hidden bg-darker border-t border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html#inicio" class="block px-3 py-2 text-white hover:text-primary">Inicio</a>
+                <a href="publicaciones.html" class="block px-3 py-2 text-white hover:text-primary">Publicaciones</a>
+                <a href="index.html#investigacion" class="block px-3 py-2 text-white hover:text-primary">Investigación</a>
+                <a href="blog.html" class="block px-3 py-2 text-white hover:text-primary">Blog</a>
+                <a href="team.html" class="block px-3 py-2 text-white hover:text-primary">Equipo</a>
+                <a href="contact.html" class="block px-3 py-2 text-white hover:text-primary">Contacto</a>
+            </div>
+        </div>
     </nav>
-    
-    <div class="carousel-container">
-        <div class="carousel-slide">
-            <img src="Fotos/IMG-20240423-WA0010 copy 2.jpg" alt="Descripción de la imagen 1">
-            <div class="carousel-caption">
-                <h5>Título de la Diapositiva 1</h5>
-                <p>Descripción de la primera diapositiva.</p>
+
+
+    <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+            <div class="animate-float mb-10">
+                <img src="Fotos/logo.png" alt="COHERENT Logo" class="h-40 mx-auto">
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-6">
+                <span class="gradient-text">COHERENT</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 opacity-90">
+                <span class="text-primary font-bold">CO</span>mputational and 
+                <span class="text-primary font-bold">H</span>igh-<span class="text-primary font-bold">E</span>fficiency 
+                <span class="text-primary font-bold">RE</span>search in 
+                <span class="text-primary font-bold">N</span>on-<span class="text-primary font-bold">E</span>quilibrium 
+                <span class="text-primary font-bold">T</span>hermodynamics
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="publicaciones.html" class="inline-block bg-primary hover:bg-opacity-90 text-black font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    Ver Publicaciones <i class="bi bi-journal-text ml-2"></i>
+                </a>
+                <a href="contact.html" class="inline-block border border-primary text-primary hover:bg-primary hover:bg-opacity-10 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105">
+                    Contactar <i class="bi bi-envelope ml-2"></i>
+                </a>
             </div>
         </div>
-        <div class="carousel-slide">
-            <img src="Fotos/IMG-20240423-WA0036.jpg" alt="Descripción de la imagen 2">
-            <div class="carousel-caption">
-                <h5>Fabio Pimentel</h5>
-                <p>Felicitación por su trabajo de tesis.</p>
+    </section>
+
+    <section id="investigacion" class="py-20 bg-black bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold gradient-text">
+                    Nuestros Proyectos
+                </h2>
+                <a href="publicaciones.html" class="flex items-center text-primary hover:underline">
+                    Ver todas las publicaciones <i class="bi bi-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="relative carousel-container overflow-hidden rounded-xl shadow-2xl">
+                <div class="carousel-inner flex transition-transform duration-500 ease-in-out">
+                    <div class="carousel-slide min-w-full relative">
+                        <img src="Fotos/IMG-20240423-WA0010_copy_2.jpg" alt="Investigación 1" class="w-full h-96 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <h3 class="text-2xl font-bold text-white">Percolación de Azulejos</h3>
+                            <p class="text-gray-300">Estudio de sistemas complejos mediante simulaciones numéricas.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide min-w-full relative">
+                        <img src="Fotos/IMG-20240423-WA0036.jpg" alt="Investigación 2" class="w-full h-96 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <h3 class="text-2xl font-bold text-white">Fabio Pimentel</h3>
+                            <p class="text-gray-300">Felicitación por su trabajo de tesis.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide min-w-full relative">
+                        <img src="Fotos/IMG-20240423-WA0020.jpg" alt="Investigación 3" class="w-full h-96 object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <h3 class="text-2xl font-bold text-white">Congreso Internacional</h3>
+                            <p class="text-gray-300">Participación en el II Congreso de Investigación.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control prev absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-primary hover:text-black transition-all">
+                    <i class="bi bi-chevron-left text-2xl"></i>
+                </button>
+                <button class="carousel-control next absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-primary hover:text-black transition-all">
+                    <i class="bi bi-chevron-right text-2xl"></i>
+                </button>
             </div>
         </div>
-        <div class="carousel-slide">
-            <img src="Fotos/IMG-20240423-WA0020.jpg" alt="Descripción de la imagen 3">
-            <div class="carousel-caption">
-                <h5>FOTO DE GRUPO</h5>
-                <p>Fotografía del grupo en el II Congreso Internacional de Investigación y Desarrollo.</p>
+    </section>
+
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-16 gradient-text">
+                Investigación Destacada
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card rounded-xl p-6 border border-gray-800 hover:border-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-primary mb-4">
+                        <i class="bi bi-cpu text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Percolación de Azulejos Triangulares</h3>
+                    <p class="text-gray-400 mb-4">Estudio de percolación estándar e inversa de azulejos triangulares en redes triangulares mediante simulaciones numéricas.</p>
+                    <a href="publicaciones.html" class="text-primary hover:underline inline-flex items-center">
+                        Ver más <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 border border-gray-800 hover:border-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-primary mb-4">
+                        <i class="bi bi-activity text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Crecimiento de Superficies Metálicas</h3>
+                    <p class="text-gray-400 mb-4">Simulaciones de Monte Carlo cinético basadas en DFT para estudiar el crecimiento superficial de Cr y W.</p>
+                    <a href="publicaciones.html" class="text-primary hover:underline inline-flex items-center">
+                        Ver más <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 border border-gray-800 hover:border-primary transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="text-primary mb-4">
+                        <i class="bi bi-diagram-3 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Percolación Inversa con Varillas</h3>
+                    <p class="text-gray-400 mb-4">Estudio de percolación inversa al eliminar varillas semirrígidas de una red cuadrada mediante simulaciones numéricas.</p>
+                    <a href="publicaciones.html" class="text-primary hover:underline inline-flex items-center">
+                        Ver más <i class="bi bi-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="carousel-controls">
-            <button class="carousel-control" id="prevSlide">&#9664;</button>
-            <button class="carousel-control" id="nextSlide">&#9654;</button>
+    </section>
+
+    <section id="blog-preview" class="py-20 bg-black bg-opacity-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold gradient-text">
+                    Blog de Investigación
+                </h2>
+                <a href="blog.html" class="flex items-center text-primary hover:underline">
+                    Ver todos los artículos <i class="bi bi-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="glass-card rounded-xl overflow-hidden transition-transform hover:-translate-y-2">
+                    <img src="Fotos/blog1.jpg" alt="Blog post" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-400 mb-2">
+                            <span>15 Mayo 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>5 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Avances en Percolación</h3>
+                        <p class="text-gray-400 mb-4">Nuevos descubrimientos en nuestros estudios de percolación...</p>
+                        <a href="blog/avances-percolacion.html" class="text-primary hover:underline inline-flex items-center">
+                            Leer más <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-xl overflow-hidden transition-transform hover:-translate-y-2">
+                    <img src="Fotos/blog2.jpg" alt="Blog post" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-400 mb-2">
+                            <span>28 Junio 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>8 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Simulaciones KMC</h3>
+                        <p class="text-gray-400 mb-4">Cómo estamos mejorando nuestras simulaciones de Monte Carlo...</p>
+                        <a href="blog/simulaciones-kmc.html" class="text-primary hover:underline inline-flex items-center">
+                            Leer más <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-xl overflow-hidden transition-transform hover:-translate-y-2">
+                    <img src="Fotos/blog3.jpg" alt="Blog post" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-400 mb-2">
+                            <span>10 Agosto 2023</span>
+                            <span class="mx-2">•</span>
+                            <span>6 min lectura</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Congreso Internacional</h3>
+                        <p class="text-gray-400 mb-4">Nuestra participación en el último congreso de física computacional...</p>
+                        <a href="blog/congreso-internacional.html" class="text-primary hover:underline inline-flex items-center">
+                            Leer más <i class="bi bi-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <script src="scripts/slide.js"></script>
+    </section>
+
+    <section id="galeria" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold gradient-text">
+                    Galería Multimedia
+                </h2>
+                <a href="galeria.html" class="flex items-center text-primary hover:underline">
+                    Ver galería completa <i class="bi bi-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gallery">
+                <a href="Fotos/gallery-large1.jpg" class="gallery-item">
+                    <div class="relative group overflow-hidden rounded-xl">
+                        <img src="Fotos/gallery1.jpg" alt="Evento científico" class="w-full h-40 md:h-56 object-cover transition-transform group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-sm text-gray-300">Congreso 2023</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="Fotos/gallery-large2.jpg" class="gallery-item">
+                    <div class="relative group overflow-hidden rounded-xl">
+                        <img src="Fotos/gallery2.jpg" alt="Laboratorio" class="w-full h-40 md:h-56 object-cover transition-transform group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                            <p class="text-sm text-gray-300">Nuestro laboratorio</p>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black bg-opacity-80 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-display font-bold gradient-text mb-4">COHERENT</h3>
+                    <p class="text-gray-400">Grupo de investigación en termodinámica computacional.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="publicaciones.html" class="text-gray-400 hover:text-primary transition">Publicaciones</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-primary transition">Blog</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-primary transition">Equipo</a></li>
+                        <li><a href="galeria.html" class="text-gray-400 hover:text-primary transition">Galería</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400">
+                            <i class="bi bi-geo-alt-fill text-primary mr-2"></i> Instituto de Física, UASD
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="bi bi-envelope-fill text-primary mr-2"></i> info@coherent-research.com
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="bi bi-telephone-fill text-primary mr-2"></i> +1 809-555-1234
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Síguenos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-linkedin text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-github text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                            <i class="bi bi-google text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2025 COHERENT Research Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#f96d00" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1 } },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": true, "distance": 150, "color": "#f96d00", "opacity": 0.4, "width": 1 },
+                    "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": { "enable": true, "mode": "grab" },
+                        "onclick": { "enable": true, "mode": "push" }
+                    }
+                }
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const carousel = document.querySelector('.carousel-inner');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
+            const slideCount = slides.length;
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateCarousel();
+            });
+
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+                updateCarousel();
+            });
+
+            setInterval(function() {
+                currentIndex = (currentIndex + 1) % slideCount;
+                updateCarousel();
+            }, 5000);
+
+            lightGallery(document.querySelector('.gallery'), {
+                selector: '.gallery-item',
+                download: false,
+                counter: false
+            });
+
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
